@@ -4,14 +4,15 @@
   "description": "Tumblr API Demonstration",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server",
+    "prod": "webpack -p"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devonkoch/tumblr-client.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Devon Koch <devon.r.koch@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/devonkoch/tumblr-client/issues"
   },
