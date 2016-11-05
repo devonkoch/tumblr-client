@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/devonkoch/tumblr-client#readme",
   "dependencies": {
-    "axios": "^0.15.2",
+    "jquery": "^3.1.1",
     "react": "^15.3.2",
+    "react-addons-update": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^3.0.0",
-    "tumblr.js": "^1.1.1"
+    "react-router": "^3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",

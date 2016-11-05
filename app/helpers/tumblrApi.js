@@ -4,7 +4,6 @@ var _APIKEY = '3lRlLdZi1GsTGCpvpwXdHR2FwkCApeoK3hneUzy4e7YkEabdRq';
 var _baseURL = 'https://api.tumblr.com/v2/';
 
 function generateUrl(blogID, tag) {
-  // both empty - do nothing
   if (blogID === '' && tag === '') {
     return;
   }
@@ -26,14 +25,21 @@ function generateUrl(blogID, tag) {
   return _baseURL + 'blog/' + blogID + '/posts' + tag + "api_key=" + _APIKEY;
 }
 
+function formatTumblrData(data) {
+  data = data.response;
+  data = !!data.posts ? data.posts : data;
+  
+  return data;
+}
+
 function getTumblrPosts(blogID, tag, callback) {
   var url = generateUrl(blogID, tag);
   $.ajax({
     type: 'GET',
     url: url,
     dataType: 'jsonp',
-    success: function(data) {
-      callback(data);
+    success: function(tumblrData) {
+      callback(formatTumblrData(tumblrData));
     }
   });
 }
