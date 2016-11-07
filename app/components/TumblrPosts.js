@@ -27,7 +27,7 @@ function TumblrPostsList (props) {
   return (
     <div style={styles.container}>
       {props.tumblrPost.map(function (itemData) {
-        return <PostContainer data={itemData} buttonText={props.buttonText} handleClick={props.handleClick.bind(null, itemData)} />
+        return <PostContainer key={itemData.id} data={itemData} buttonText={props.buttonText} handleClick={props.handleClick.bind(null, itemData)} />
       })}
     </div>
   )

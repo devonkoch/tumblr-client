@@ -21,15 +21,12 @@ var TumblrPostsContainer = React.createClass({
     this.makeRequest(nextProps.routeParams)
   },
   makeRequest: function (routeParams) {
-    var blog = routeParams.blog || '';
-    var tag = routeParams.tag || '';
-    var _this = this;
-    getTumblrPosts(blog, tag, function(tumblrPostData) {
-      console.log(tumblrPostData)
-      _this.setState({
-        isLoading: false,
-        tumblrPostData: tumblrPostData
-      });
+    getTumblrPosts(routeParams.blog || '', routeParams.tag || '', this.setTumblrData);
+  },
+  setTumblrData: function (data) {
+    this.setState({
+      isLoading: false,
+      tumblrPostData: data
     });
   },
   addToFavorites: function (data) {

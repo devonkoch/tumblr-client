@@ -46,8 +46,7 @@ function Form (props) {
 
 Form.propTypes = {
   direction: PropTypes.string,
-  onSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired
 }
 
 module.exports = Form;
