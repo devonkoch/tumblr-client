@@ -25,28 +25,22 @@ var styles = {
 
 function TumblrPostsList (props) {
   return (
-    <div>
-      <div style={styles.container}>
-        {props.tumblrPost.map(function (itemData) {
-          return <PostContainer data={itemData} buttonText={props.buttonText} handleClick={props.handleClick.bind(null, itemData)} />
-        })}
-      </div>
+    <div style={styles.container}>
+      {props.tumblrPost.map(function (itemData) {
+        return <PostContainer data={itemData} buttonText={props.buttonText} handleClick={props.handleClick.bind(null, itemData)} />
+      })}
     </div>
   )
 }
 
 function TumblrPosts (props) {
   return (
-    <div>
-      {
-        props.isLoading === true
-          ? <h1 style={styles.header}> Loading </h1>
-          : <TumblrPostsList
-              tumblrPost={props.tumblrPostData}
-              buttonText={props.buttonText}
-              handleClick={props.handleClick} />
-      }
-    </div>
+    props.isLoading === true
+      ? <h1 style={styles.header}> Loading </h1>
+      : <TumblrPostsList
+          tumblrPost={props.tumblrPostData}
+          buttonText={props.buttonText}
+          handleClick={props.handleClick} />
   )
 }
 

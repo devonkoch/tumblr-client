@@ -25,6 +25,7 @@ var TumblrPostsContainer = React.createClass({
     var tag = routeParams.tag || '';
     var _this = this;
     getTumblrPosts(blog, tag, function(tumblrPostData) {
+      console.log(tumblrPostData)
       _this.setState({
         isLoading: false,
         tumblrPostData: tumblrPostData
@@ -46,23 +47,19 @@ var TumblrPostsContainer = React.createClass({
   },
   render: function () {
     return (
-      <div>
-        {
-          this.props.location.pathname === '/favorites'
-          ? <TumblrPosts
-              isLoading={false}
-              handleClick={this.removeFromFavorites}
-              buttonText={'Remove'}
-              tumblrPostData={this.state.favoritesPostData} />
-          : <TumblrPosts
-              blog={this.props.routeParams.blog}
-              tag={this.props.routeParams.tag}
-              isLoading={this.state.isLoading}
-              handleClick={this.addToFavorites}
-              buttonText={'Add'}
-              tumblrPostData={this.state.tumblrPostData} />
-        }
-      </div>
+      this.props.location.pathname === '/favorites'
+      ? <TumblrPosts
+          isLoading={false}
+          handleClick={this.removeFromFavorites}
+          buttonText={'Remove'}
+          tumblrPostData={this.state.favoritesPostData} />
+      : <TumblrPosts
+          blog={this.props.routeParams.blog}
+          tag={this.props.routeParams.tag}
+          isLoading={this.state.isLoading}
+          handleClick={this.addToFavorites}
+          buttonText={'Add'}
+          tumblrPostData={this.state.tumblrPostData} />
     )
   }
 });
