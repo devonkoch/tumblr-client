@@ -12,7 +12,6 @@ var styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     background: 'rgba(252, 90, 44, 0.89)',
-    backgroundImage: "url('app/images/pattern.svg')",
     color: '#fff',
     padding: 10
   },
