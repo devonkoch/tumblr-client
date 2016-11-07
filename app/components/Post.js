@@ -2,6 +2,7 @@ var React = require('react');
 var Card = require('./Card');
 var TextCard = require('./TextCard');
 var PhotoCard = require('./PhotoCard');
+var VideoCard = require('./VideoCard');
 
 function Post (props) {
   var type = props.data.type;
@@ -10,6 +11,8 @@ function Post (props) {
     card = <TextCard data={props.data} buttonText={props.buttonText} toggleFavorites={props.handleClick}/>;
   } else if (type === 'photo') {
     card = <PhotoCard data={props.data} buttonText={props.buttonText} toggleFavorites={props.handleClick}/>;
+  } else if (type === 'video') {
+    card = <VideoCard data={props.data} buttonText={props.buttonText} toggleFavorites={props.handleClick}/>;
   }
 
   var styles = {

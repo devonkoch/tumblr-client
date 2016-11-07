@@ -1,23 +1,21 @@
 var React = require('react');
 var Button = require('./Button');
 
+function createMarkup(markup) {
+  return {__html: markup};
+}
 
-function PhotoCard (props) {
+function VideoCard (props) {
   var summary = props.data.summary;
-  var photos = props.data.photos;
-  var photo = photos[0].original_size;
-  
-  var styles = {
-    maxWidth: 400
-  };
+  var videoPlayer = props.data.player[1].embed_code;
 
   return (
     <div className="card-block">
-      <img className="card-img-top" style={styles} src={photo.url} />
+      <div className="card-img-top" dangerouslySetInnerHTML={createMarkup(videoPlayer)}/>
       <p className="card-text">{summary}</p>
       <Button buttonText={props.buttonText} onSubmit={props.toggleFavorites} />
     </div>
   )
 }
 
-module.exports = PhotoCard;
+module.exports = VideoCard;

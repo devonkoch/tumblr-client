@@ -1,5 +1,4 @@
 var React = require('react');
-var FormContainer = require('../containers/FormContainer');
 
 var styles = {
   fontSize: 40,
